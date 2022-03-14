@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../_js/jquery-3.6.0.js"></script>
+
+    <!-- 10. 參考結果設定對應 css -->
+    
+    <style>
+        .h{
+            float: left;
+            margin-right: 20px;
+            border: 1px black solid;
+            
+        }
+        .imgFluid{
+            height: 250px;
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            max-width: 100%;
+            height: auto;
+           
+        }
+        p{
+            text-align: center;
+            /* 方法B */
+            
+        }
+        .visib{
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <!-- 20. 設定袋子，裡面裝一張圖片和一段文字 -->
+    <div class="h"><div class="imgFluid"><img src="./img/1.jpg" alt=""></div><p class="visib">KERORO</p></div>
+    <div class="h"><div class="imgFluid"><img src="./img/2.jpg" alt=""></div><p class="visib">TAMAMA</p></div>
+    <div class="h"><div class="imgFluid"><img src="./img/3.jpg" alt=""></div><p class="visib">GIRORO</p></div>
+    <div class="h"><div class="imgFluid"><img src="./img/4.jpg" alt=""></div><p class="visib">DORORO</p></div>
+    <div class="h"><div class="imgFluid"><img src="./img/5.jpg" alt=""></div><p class="visib">KURURU</p></div>
+    <div class="h"><div class="imgFluid"><img src="./img/6.jpg" alt=""></div><p class="visib">蛤?</p></div>
+   
+    <script>
+        $(function () {
+            
+            // 30. 設定先將文字隱藏起來
+            //      滑鼠經過div的時候顯示，離開的時候隱藏
+            //    * mouseenter 和 mouseleave
+            
+            //方法A
+            // $('p').hide();
+            // for(let i = 0 ; i < 7 ; i++){
+            //     $('img').eq(i).on('mouseenter',function(){
+            //         $('p').eq(i).show();
+            //     })
+            //     $('img').eq(i).on('mouseleave',function(){
+            //         $('p').eq(i).hide();
+            //     })
+            // }
+
+            // for(let i = 0 ; i < 7 ; i++){
+            //     $('img').eq(i).on({
+            //         'mouseenter': function(){
+            //         $('p').eq(i).show();
+            //         },
+            //         'mouseleave':function(){
+            //         $('p').eq(i).hide();
+            //         }
+            //     })
+            // }
+
+            //方法B
+            // let d = $('div');
+            // d.on('mouseenter',function(){
+            //     $(this).find('p').css('visibility','visible')
+            // })
+            // d.on('mouseleave',function(){
+            //     $(this).find('p').css('visibility','hidden')
+            // })
+
+            // $('div').on({
+            //     mouseenter : function(){
+            //         $(this).find('p').css('visibility','visible')
+            //     },
+            //     mouseleave : function(){
+            //     $(this).find('p').css('visibility','hidden')
+            //     }
+            // })
+
+            //方法D 
+            $('div').on('mouseenter mouseleave',function(){
+                $(this).find('p').toggleClass('visib')
+            })
+
+
+
+        });
+
+    </script>
+</body>
+
+</html>

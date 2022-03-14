@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <input type="checkbox" checked="true" name="" id="chk">
+    <script>
+        // function apple (a, b){
+        //     console.log(b);
+        //     console.log(arguments[2]);
+        // }
+        // apple('apple', 'bee', 'cat')
+    
+        function changeChk(){
+            $('#chk').prop('checked') == true ? $('#chk').attr('checked','false') : $('#chk').attr('checked','true');
+            console.log($('#chk').prop('checked'));
+            // if(chk.checked){
+            //     $('h1').show();
+            // }else{
+            //     $('h1').hide();
+            // }
+        }
+        
+    </script>
+</body>
+</html>

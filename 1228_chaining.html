@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./_js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <!-- <p id="p1">這裡有文字</p> -->
+    <ul>
+        <li id="d1">Apple</li>
+        <li id="d2">Bee</li>
+        <li id="d3">Cat</li>
+        <li id="d4">Dog</li>
+        <li id="d5">Egg</li>
+    </ul>
+  
+    <script>  
+        // let temp = $('#p1').css('color','red').hide().slideDown(1000).slideUp(1000);
+        // console.log(temp);
+        $(()=>{
+           $('li[id!="d1"]').hide().each((idx, elm)=>{
+                $(elm).fadeIn(2500*(idx+1));   
+                
+           }) 
+        })
+        
+    </script>
+</body>
+</html>

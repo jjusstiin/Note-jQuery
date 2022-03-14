@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/40_events.css">
+    <script src="../_js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+
+
+    <h4>jQuery event.data</h4>
+    <p><a href='https://api.jquery.com/event.data/'>https://api.jquery.com/event.data/</a></p>
+
+    <table>
+        <tr>
+            <td>*1</td>
+            <td>*2</td>
+            <td>*3</td>
+            <td>*4</td>
+            <td>*5</td>
+        </tr>
+        <tr>
+            <td>#1</td>
+            <td>#2</td>
+            <td>#3</td>
+            <td>#4</td>
+            <td>#5</td>
+        </tr>
+    </table>
+
+    <hr>
+    <button id="demo">click</button>
+    <br>
+    <br>
+    <button>0</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <div id="log">  </div>
+    <script>
+
+        // 10. $().on( events [, selector ] [, data ], handler ) 
+        //   * 使用其他的參數: selector
+        $('table').on('click', 'td', function(){
+            console.log(this);
+        })
+
+        // 20. $().on( events [, selector ] [, data ], handler ) 
+        //   * 使用其他的參數: data
+        $('#demo').on('click',[{a: 'apple'}, {a: 'cat'}], function(e){
+            console.log(e.data[1].a);
+        })
+
+        // 30. 從官方複製範例下來執行，結果是否相同?
+        //   * 試著說明和改寫
+        let logDiv = $('#log');
+        
+        for(var i = 0; i < 5; i++){
+            console.log(i);
+            $('button:not(:first)').eq(i).on('click',{value: i},function(e){
+                let msgs = [
+                    'button = ' + $(this).index(),
+                    'event.data.value = ' + e.data.value,
+                    'i = ' + i 
+                ];
+                logDiv.append(msgs.join(',')+"<br>");
+            })
+        }
+    </script>
+
+
+</html>

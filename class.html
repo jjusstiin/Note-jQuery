@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Monster{
+            hp = 200;
+            mp = 100;
+            monsterName = "小怪物";
+            hit(){
+                this.hp = this.hp-50
+            }
+            constructor(aaa){
+                this.monsterName = aaa;
+            }
+        }
+
+        class Boss extends Monster{
+            sp = 9999;
+            constructor(apple, bee){
+                super(apple)
+                this.sp = bee;
+            }
+        }
+        let b = new Boss('雷丘',500)
+        console.log(b.monsterName);
+        console.log(b.sp);
+        
+        console.log(b.hp);
+        console.log(b.mp);
+        
+
+        let m = new Monster('皮卡丘');
+        console.log(m.monsterName);
+        console.log(m.hp);
+        m.hit();
+        console.log(m.hp);
+
+    </script>
+</body>
+</html>

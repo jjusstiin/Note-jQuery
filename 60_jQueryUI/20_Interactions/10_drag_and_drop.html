@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="../../jquery-ui-1.12.0/jquery-ui.css">
+
+  <style>
+  #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  #droppable { width: 300px; height: 150px; padding: 0.5em; margin: 10px;}
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+</head>
+<body>
+ 
+<div id="droppable" class="ui-widget-header">
+    <p>消滅</p>
+</div>
+
+<input id="add" type="button" value="Add 小垃圾">
+
+<hr>
+
+<div id="draggable" class="draggable ui-widget-content">
+  <p>來抓我啊</p>
+</div>
+
+<div id="draggable" class="draggable ui-widget-content">
+    <p>來抓我啊</p>
+  </div>
+
+<div id="draggable" class="draggable ui-widget-content">
+    <p>來抓我啊</p>
+</div>  
+
+ 
+
+ 
+<script>
+    $( function() {
+        //拖曳時文字會變化
+        //送到drop會消失
+        let cach;
+        let n;
+        function drag(){
+
+      $( ".draggable" ).draggable({
+        start:function(){
+            n = Math.floor(Math.random() * 6 + 1)
+            // console.log(n);
+            return n
+        },
+        drag: function() {
+            $(this).text('蛤~').append(`<img src="../img/${n}.jpg">`)
+            cach = this;
+            $('#droppable').addClass( "ui-state-highlight" ).text( "ㄚㄚㄚㄚ" );
+        },
+        stop: function() {
+            $(this).text('來抓我啊')
+            $('#droppable').removeClass( "ui-state-highlight" ).text( "消滅" );
+        }
+      });
+
+      $( "#droppable" ).droppable({
+        drop: function( event, ui ) {
+          $( this )
+            .removeClass( "ui-state-highlight" ).text('消滅')
+            $(cach).fadeOut(500,function(){
+                
+            }); 
+        },
+      });
+    }
+
+        drag();
+      $('#add').on('click',function(){
+        $('body').append(`<div id="draggable" class="draggable ui-widget-content"><p>來抓我啊</p></div>`)
+        drag();
+      })
+
+    });
+    </script>
+</body>
+</html>

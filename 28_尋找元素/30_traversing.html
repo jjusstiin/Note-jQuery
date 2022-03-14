@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/30_traversing.css">
+    <script src="../_js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    
+    <button id="btnPickItem">挑選</button>
+    <hr>
+    
+    <div id="tw">
+        <h4>台灣水果</h4>
+        <ul id="twList">
+            <li class="grape">巨峰葡萄</li>
+            <li>金鑽鳳梨</li>
+            <li>麻豆文旦</li>
+            <li>小玉西瓜</li>
+            <li>大湖草莓</li>
+        </ul>
+    </div>
+
+    <div id="jp">
+        <h4>日本水果</h4>
+        <ul id="jpList">
+            <li><b class="grape">麝香葡萄</b></li>
+            <li><b>夕張哈密瓜</b></li>
+            <li><b>甘王草莓</b></li>
+            <li><b>愛媛柑橘</b></li>
+            <li><b>岡山白桃</b></li>
+        </ul>
+    </div>
+
+    <div id="demo"></div>
+
+    <script>
+        btnPickItem.onclick = function(){
+            let result = [];
+            // filter
+            // $('li').filter(function(idx, elm){
+            //     return idx == 0 || elm.innerText.indexOf('草莓') > -1 ;
+            // }).each(function(idx, elm){
+            //     result.push(elm.innerText);
+            // })
+
+            // find
+            // $('ul').find('b').each(function(idx, elm){ //find找所有後代
+            //     result.push(elm.innerText);
+            // })
+
+            //children
+            // $('ul').children('li').each(function(idx, elm){ //childrnen只找下一層
+            //     result.push(elm.innerText);
+            // })
+
+            //parent
+            // $('.grape').parent().each(function(idx, elm){  //往上找一層
+            //     result.push(elm.innerText);
+            // })
+
+            // closest
+            // $('.grape').closest('ul').each(function(idx, elm){ //往上找指定對象
+            //     result.push(elm.innerText);
+            // })
+
+            // eq
+            // $('li').eq(9).each(function(idx, elm){ 
+            //     result.push(elm.innerText);
+            // })
+
+            // contents
+            // let cont = $('div').contents();
+            // cont.filter((idx,elm) => {
+            //     console.log(elm);
+            //      return  elm.nodeName !=="#text";
+            // }).each(function(idx, elm){ 
+            //     result.push(elm.innerText);
+            // })
+                
+            // for(let item in hi){
+            //     result.push(item.innerText);    
+            // }
+
+            // css contains方法
+            // $('li:contains("葡萄")').each(function(idx, elm){ 
+            //     result.push(elm.innerText);
+            // })
+
+            //css has方法
+            // $('li:has(b)').each(function(idx, elm){ 
+            //     result.push(elm.innerText);
+            // })
+
+            // jQ has用法
+            // $('li').has('b').each(function(idx, elm){ 
+            //     result.push(elm.innerText);
+            // })
+
+
+            demo.innerHTML = result.join('<br>#');
+        }
+        // * 比較底下幾種 尋找|篩選 元素的方式 *
+
+        // 10. filter   ===> $().filter()
+        // 11. find     ===> $().find()
+        // 12. children ===> $().children()
+        // 13. parent   ===> $().parent()
+        // 14. closest  ===> $().closest()
+        
+        // 15. eq       ===> $().eq()
+        // 16. contents ===> $().contents()
+
+        // 21. :contains ===> $(selector:contains(text))
+        // 22. :has()    ===> $(selector:has(selector))
+
+        // 30. :has() 是不是 css 規範中的一部分?
+        
+    </script>
+
+</body>
+
+</html>

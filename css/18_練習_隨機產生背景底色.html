@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../_js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <input type="button" name="" id="changeColor" value="Start">
+    <input type="button" name="" id="stopColor" value="Stop">
+    <hr>
+    <img id="img" src="img/1.jpg" style="width: 500px; height: 500px;" alt="">
+    
+    <script>
+
+        // 10. 用 JavaScript 改變body背景底色
+        // document.body.setAttribute('style','background:blue;');
+
+        // 20. 用 jQuery 改變body背景底色
+                
+        // 30. 隨機產生背景底色
+        $('#changeColor').on('click',() => {
+            let timer = setInterval(func,1000);
+            function func(){
+
+                //Colors
+                let rRand = getRandom(256, 0);
+                let gRand = getRandom(256, 0);
+                let bRand = getRandom(256, 0);
+                // console.log(rRand, gRand, bRand);
+                $('body').css({backgroundColor: `rgb(${rRand}, ${gRand}, ${bRand})`}).fadeIn();
+
+                //Pics
+                $('#img').prop('src',`img/${getRandom(7, 1)}.jpg`);
+                // console.log(numRand);
+
+                //Stop Interval
+                $('#stopColor').on('click', ()=>clearInterval(timer));
+            }
+
+            function getRandom(a, b){
+                return Math.floor(Math.random() * a + b);
+            }
+        })
+
+        
+        
+        // 40. 點選按鈕產生背景底色
+        
+        // 50. 加入 setInterval 讓畫面每秒更新上述設定
+        
+    </script>
+</body>
+
+</html>

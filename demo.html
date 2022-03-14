@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let pxmart = [
+            {
+                price: 100,
+                discount: 0.8
+            },
+            {
+                price:200,
+                discount: 0
+            }
+        ];
+
+    function getsummery(arr, func){
+        let tot = 0;
+        for(obj of arr){
+            tot += func(obj.price, obj.discount);
+        }
+        return tot;
+    }
+    
+    
+    let temp = getsummery(pxmart, function (price, discount){
+        if(discount !== 0){
+            return price * discount;
+        }else{
+            return price;
+        }      
+    })
+
+    console.log(temp);
+
+    function apple(bee){
+    console.log(bee = bee == undefined? 0 : bee);
+}
+   apple();
+
+    </script>
+</body>
+</html>

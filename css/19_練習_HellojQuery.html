@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../_js/jquery-3.6.0.js"></script>
+    <style>
+        body{
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        #all{
+            width: 100vmax;
+            height: 100vh;
+        }
+        #content{
+            padding-top: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #bg, #word{
+            width: 400px;
+            font-size: 100px;
+            text-align: center;
+            user-select: none;
+        }
+        p{
+            margin: 0 auto;
+            width: 500px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="all">
+        <div id="content">
+            <div id="bg" >Hello</div>
+            <div id="word">jQuery</div>
+        </div>
+        <p><span id="sbg">hsl(0, 80%, 70%)</span> : <span id="swd">hsl(180, 80%, 70%)</span></p>
+    </div>
+    
+    
+    <script>
+        $('body').css({
+                backgroundColor : `hsl(0, 80%, 70%)`
+            })
+            $('#bg').css({
+                background : `hsl(180, 80%, 70%)`,
+                color : `hsl(0, 80%, 70%)`
+            })
+            $('#word').css({
+                color : `hsl(180, 80%, 70%)`
+            })
+
+        $('#all').on('click', ()=>{
+            let color = Math.floor(Math.random() * 361);
+            let colorBgHsl = `hsl(${color}, 80%, 70%)`
+            let colorWdHsl = `hsl(${(color+180)%360}, 80%, 70%)`
+            // console.log(color);
+
+            $('body').css({
+                backgroundColor : colorBgHsl
+            })
+            $('#bg').css({
+                background : colorWdHsl,
+                color : colorBgHsl
+            })
+            $('#word').css({
+                color : colorWdHsl
+            })
+
+            // $('#word').append(`<p>${colorHsl}</p>`);
+            $('#sbg').text(`${colorBgHsl}`)  
+            $('#swd').text(`${colorWdHsl}`)
+        })
+        // * 模仿 Hello Color 
+        //   https://jxnblk.github.io/hello-color/?c=f7da2d
+        //   做出一個隨機產生 對比色|互補色 的網頁
+
+    </script>
+
+</body>
+
+</html>

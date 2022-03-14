@@ -1,0 +1,37 @@
+$().hide();	隱藏
+.show()		顯示
+.size() 	v1計算標籤數量
+.length 	v3計算標籤數量
+.text() 	標籤內文字內容 or text("寫入內容")
+.html() 	標籤內標籤及文字內容 or html("寫入內容")
+.prop("value")	取出屬性及時值	  .prop("value", "something")寫入
+.attr("value")	取出預設標籤屬性  .attr("value", "something")寫入
+.val()		取出及時value值	  .val("something")寫入
+.css()		css操控 .css('color','red');
+.fadeIn()	淡入
+.fadeOut()	淡出
+.append('')	增加到指定後面
+.before()
+.after()
+.append()
+.prepend()
+.appendTo('')
+.empty()	清除標籤內內容
+.remove() 	清除標籤函內容 也清除jq的狀態，加回來不是本人沒有功能
+.detach()	分離dom標籤內容 保留jq狀態，加回來是本人
+.unwrap();	清除父元素
+.on('click', () =>{})
+.each(function(idx,elm){})
+$.each($('h3'),function(idx,elm){})
+.filter('.grape').each(function(idx, elm){})
+.join('<br>'); 陣列轉字串
+.split(" ") 字串轉陣列
+.addClass
+.removeClass
+.toggleClass('bgColor')
+
+
+
+jQuery 選擇器
+css選擇器
+input 特別用法 $(':text') 

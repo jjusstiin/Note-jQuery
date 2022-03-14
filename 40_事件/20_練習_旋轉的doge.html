@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../_js/jquery-3.6.0.js"></script>
+    <style>
+        body{
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="doge" src="./5f1GG0th.jpg" alt="">
+    <script>
+        $(function () {
+
+            // 10. 參考執行結果，條列所需的 樣式以及事件
+            //      * 旋轉圖片css: transform:rotateZ(90deg)
+            
+            let deg = 0
+            let time;
+            // $('#doge').on('mouseover',function(){
+            //     let time = setInterval(sp,1)
+            //     function sp(){
+            //         deg += 1;
+            //         $('#doge').css('transform',`rotateZ(${deg}deg)`)
+            //     }
+            //     $('#doge').on('mouseleave',function(){
+            //         clearInterval(time);
+            //     })
+            // })
+
+
+            $('#doge').on({
+                'mouseover' : function(){
+                        time = setInterval(function(){
+                        deg += 1;
+                        $('#doge').css('transform',`rotateZ(${deg}deg)`)
+                    },1)
+                },
+                'mouseleave' : function(){
+                    clearInterval(time);
+                }
+            })
+            
+
+        });
+    </script>
+</body>
+
+</html>

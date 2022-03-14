@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../_js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+
+    <input type="checkbox" id="demo" > All
+    <input type="checkbox" name="demo" id='apple'> Apple
+    <input type="checkbox" name="demo" id='bee'> Bee
+    <input type="checkbox" name="demo" id='cat'> Cat
+    <!-- <input type="checkbox" name="demo" id='dog'> Dog
+    <input type="checkbox" name="demo" id='egg'> Egg
+    <input type="checkbox" name="demo" id='flag'> Flag -->
+
+    <script>
+
+        // 10. 當 All 被勾選的時候，其餘 checkbox 也會被勾選起來
+        //   * 還有其他未列出的勾選連動，請一併考慮
+        $('input').change(function(){
+            // if(this.id == 'demo' && this.checked == true){
+            //     $('input').prop('checked',true)
+            // }else if(this.id == 'demo' && this.checked == false){
+            //     $('input').prop('checked',false)
+            // }
+            // if(this.checked == false){
+            //     $('input:eq(0)').prop('checked',false)
+            // }
+
+            $(`input[name='${this.id}'`).prop('checked',this.checked);
+
+            $(`input[id='${this.name}']`)
+            .prop('checked', $(`input[name='${this.name}']:checked`).length == 3? true : false )
+
+        })
+        
+        
+
+    </script> 
+</body>  
+</html>
